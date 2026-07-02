@@ -1,7 +1,7 @@
 import { hmacSha256, sha256Hex } from "../../lib-ts/security/conversions";
 import { SnsConfig } from "../types";
 
-async function publishToSns(config: SnsConfig, subject: string, message: string): Promise<void> {
+export async function publishToSns(config: SnsConfig, subject: string, message: string): Promise<void> {
   // NOTE: This is a temporary solution to be used in place of the sns package (@aws-sdk/client-sns), as it doesn't work properly at the moment in this setup.
   const { region, accessKeyId, secretAccessKey, topicArn } = config;
   const host = `sns.${region}.amazonaws.com`;
